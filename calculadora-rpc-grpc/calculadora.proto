@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Calculadora {
+  rpc Somar (OperacaoDoisNumeros) returns (Resultado);
+  rpc Subtrair (OperacaoDoisNumeros) returns (Resultado);
+  rpc Multiplicar (OperacaoDoisNumeros) returns (Resultado);
+  rpc Dividir (OperacaoDoisNumeros) returns (Resultado);
+  rpc RaizQuadrada (OperacaoUmNumero) returns (Resultado);
+  rpc Exponenciar (OperacaoDoisNumeros) returns (Resultado);
+}
+
+message OperacaoDoisNumeros {
+  double a = 1;
+  double b = 2;
+}
+
+message OperacaoUmNumero {
+  double a = 1;
+}
+
+message Resultado {
+  double resultado = 1;
+}
