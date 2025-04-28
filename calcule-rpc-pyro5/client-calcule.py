@@ -40,6 +40,5 @@ def main():
             print("Resultado:", calculadora.exponenciacao(a, b))
         else:
             print("Opção inválida!")
-
 if __name__ == "__main__":
     main()
