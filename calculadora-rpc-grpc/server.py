@@ -20,7 +20,7 @@ class CalculadoraServicer(calculadora_pb2_grpc.CalculadoraServicer):
         if request.b == 0:
             context.set_details('Divisão por zero')
             context.set_code(grpc.StatusCode.INVALID_ARGUMENT) 
-            return calculadora_pb2.Resultado()
+            return calculadora_pb2.Resultado() # Retorna um resultado vazio se a divisão por zero for tentada
         return calculadora_pb2.Resultado(resultado=request.a / request.b)
 
     def RaizQuadrada(self, request, context):
@@ -30,7 +30,7 @@ class CalculadoraServicer(calculadora_pb2_grpc.CalculadoraServicer):
         return calculadora_pb2.Resultado(resultado=math.pow(request.a, request.b))
 
 def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10)) 
     calculadora_pb2_grpc.add_CalculadoraServicer_to_server(CalculadoraServicer(), server) # Adiciona o servicer ao servidor gRPC
     server.add_insecure_port('[::]:50051') # Adiciona uma porta para o servidor gRPC
     server.start()

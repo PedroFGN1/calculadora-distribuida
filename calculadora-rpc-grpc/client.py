@@ -33,6 +33,9 @@ def run():
                 elif opcao == '3':
                     resposta = stub.Multiplicar(operacao)
                 elif opcao == '4':
+                    if b == 0:
+                        print("Divisão por zero não é permitida.")
+                        continue
                     resposta = stub.Dividir(operacao)
                 elif opcao == '6':
                     resposta = stub.Exponenciar(operacao)
