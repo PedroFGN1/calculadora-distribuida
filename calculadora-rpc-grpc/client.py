@@ -3,10 +3,10 @@ import calculadora_pb2
 import calculadora_pb2_grpc
 
 def run():
-    with grpc.insecure_channel('localhost:50051') as channel:
-        stub = calculadora_pb2_grpc.CalculadoraStub(channel)
+    with grpc.insecure_channel('localhost:50051') as channel: # Cria um canal de comunicação com o servidor
+        stub = calculadora_pb2_grpc.CalculadoraStub(channel) # Cria um stub para o cliente/ Interface de comunicação com o servidor
 
-        while True:
+        while True: # Loop para manter o cliente ativo
             print("\nOperações disponíveis:")
             print("1. Soma")
             print("2. Subtração")
@@ -19,12 +19,12 @@ def run():
             opcao = input("Escolha a operação: ")
 
             if opcao == '7':
-                break
+                break # Encerra o loop e o programa
 
             if opcao in ['1', '2', '3', '4', '6']:
                 a = float(input("Digite o primeiro número: "))
                 b = float(input("Digite o segundo número: "))
-                operacao = calculadora_pb2.OperacaoDoisNumeros(a=a, b=b)
+                operacao = calculadora_pb2.OperacaoDoisNumeros(a=a, b=b) # Cria uma operação com dois números
 
                 if opcao == '1':
                     resposta = stub.Somar(operacao)
@@ -39,7 +39,7 @@ def run():
 
             elif opcao == '5':
                 a = float(input("Digite o número: "))
-                operacao = calculadora_pb2.OperacaoUmNumero(a=a)
+                operacao = calculadora_pb2.OperacaoUmNumero(a=a) # Cria uma operação com um número
                 resposta = stub.RaizQuadrada(operacao)
 
             else:
