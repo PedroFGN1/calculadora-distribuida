@@ -1,5 +1,7 @@
 # 🧮 Calculadoras Distribuídas em Python
 
+**Autor:** Pedro Ferreira Galvão Neto
+
 Desenvolvido como parte de uma atividade da disciplina de Sistemas Distribuídos, com foco em comparar abordagens de RPC em Python.
 
 Este repositório contém duas implementações de uma **calculadora distribuída**, que permite realizar operações matemáticas remotamente através de duas abordagens diferentes:
@@ -52,5 +54,5 @@ Ambas as calculadoras implementam as seguintes operações matemáticas:
     python servidor.py
     python cliente.py
 
-📄 Licença
+## 📄 Licença
 Este projeto está licenciado sob os termos da MIT License.
