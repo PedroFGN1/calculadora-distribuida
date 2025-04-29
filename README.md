@@ -55,4 +55,4 @@ Ambas as calculadoras implementam as seguintes operações matemáticas:
     python cliente.py
 
 ## 📄 Licença
-Este projeto está licenciado sob os termos da MIT License.
+Este projeto está licenciado sob os termos da **MIT License**.
