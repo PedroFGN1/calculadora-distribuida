@@ -26,7 +26,10 @@ class Calculadora:
 
 def main():
     daemon = Pyro5.api.Daemon()
+    ns = Pyro5.api.locate_ns(broadcast=True)  # Aqui ocorre o broadcast
     uri = daemon.register(Calculadora)
+    ns.register("calculadora_remota", uri)  # Registra o objeto no Name Server
+    print("Servidor da calculadora iniciado.")
     print("Objeto Calculadora disponível. URI:", uri)
     daemon.requestLoop()
 

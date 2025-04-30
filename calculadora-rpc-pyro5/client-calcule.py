@@ -1,7 +1,8 @@
 import Pyro5.api
 
 def main():
-    uri = input("Digite o URI da Calculadora: ")
+    ns = Pyro5.api.locate_ns(broadcast=True)
+    uri = ns.lookup("calculadora_remota")
     calculadora = Pyro5.api.Proxy(uri)
 
     while True:
